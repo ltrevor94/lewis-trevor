@@ -1,0 +1,107 @@
+<!DOCTYPE html><html>
+	 <head>
+
+    <title>LT.</title>
+		<meta charset=utf-8>
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="Infograph.css">
+		<link rel="shortcut icon" type="image/png" href="Images/FAVICON.png">
+		<link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+
+		<style>
+        font-family: 'Karla', sans-serif;
+        @import url('https://fonts.googleapis.com/css?family=Karla&display=swap');
+
+
+		</style>
+ 		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+
+	 </head>
+
+	 <body>
+    <div class="cursor"></div>
+		<div id="information">
+
+            <div class="text_block" id="head">
+                <p2>
+                    Lewis Trevor ~ Multidisplinary designer based in London / <a href="mailto:lewisjamestrevor@gmail.com"> *lewisjamestrevor@gmail.com* </a> <br> +44&nbsp;(0)7789&nbsp;770&nbsp;788 { <a href="https://www.instagram.com/_lewis_trevor/?hl=en"> _lewis_trevor </a> }
+
+
+							</p2>
+
+
+
+			</body>
+
+		 <script src="js/three.js"></script>
+		 <script src="js/OrbitControls.js"></script>
+		 <script>
+
+			var scene = new THREE.Scene();
+
+
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+
+			var renderer = new THREE.WebGLRenderer();
+      renderer.setSize( window.innerWidth, window.innerHeight);
+			renderer.setClearColor(0xFF0000);
+      document.body.appendChild( renderer.domElement );
+
+			window.addEventListener( 'resize', function( )
+			{
+			var width = window.innerwidth;
+			var height = window.innerHeight;
+				renderer.setSize( width, height );
+				camera.aspect = width / height;
+				camera.updateProjectionMatrix( );
+
+			});
+
+			var controls = new THREE.OrbitControls(camera, renderer.domElement);
+				controls.minDistance = 20;
+				controls.maxDistance = 20;
+
+
+
+			// create the shape
+			var geometry = new THREE.BoxGeometry( 12, 12, 0.1);
+			var material = new THREE.MeshBasicMaterial( { color: 0x0000ff} );
+			var cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+			cube.position.x = 0
+		;
+			camera.position.z = 20;
+
+			var animate = function () {
+				requestAnimationFrame( animate );
+
+				cube.rotation.x += 0.00;
+				cube.rotation.y += 0.005;
+				cube.rotation.z += 0.00;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+
+			// game logic
+			var update = function ( )
+			{
+
+
+			};
+
+			// draw Scene
+			var render = function ( )
+			{
+				renderer.render( scene, camera );
+			};
+
+
+		 </script>
+	</body>
+</html>
